@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/2.3.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/2.3.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/2.3.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+
+    <!-- Swiper.js local styles and script -->
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+    <script src="swiper/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const startIndex = parseInt(urlParams.get("screenshot")) || 0;
+
+            new Swiper('.swiper', {
+                initialSlide: startIndex,
+                effect: 'fade',
+                speed: 200,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '">' + (index + 1) + "</span>";
+                    },
+                    dynamicBullets: true,
+                    dynamicMainBullets: 3  // Shows 3 main bullets + 2 smaller ones on sides
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .swiper {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: lightgrey;
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background: #007aff;
+        }
+    </style>
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="4efee191de785299b86a41cd85b66a1f661d42485136db38e9f420aad20e2a65.html">Compra Producto</a></span>
+                > <span class="truncate-60"><a
+                    href="821a3f59a2c2b5835b554a7c4eb90cc024379abed116fe0d0023ee3d88644819.html">Seleccionar y comprar un producto al azar por categor&iacute;a </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 25-09-2026 03:59</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Compra De Productos Por Categoría </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                Como usuario de Bon-Bonite<br />
+Quiero navegar por las diferentes categorías de productos<br />
+Para seleccionar un producto, elegir una talla disponible y realizar el proceso de compra
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="34658a1663fcf042bd7acb3325affbe4e647c8acd84d0228be2f52e1381e61b9.html">10 To 30 Seconds
+                                        (Duration)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="2a5b6a7be0f08df02d8ab0b4d4c68648c2695c6c7ef0658c71de4d42b1415b18.html">Under 1 Second
+                                        (Duration)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="f3cb8a6776dbcc4215d022b0d78efbcc75fd96575ce52b2c6d34353a34de8df5.html">Compra Como Invitado
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="error-color">Seleccionar y comprar un producto al azar por categor&iacute;a
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Dado que el usuario se encuentra en la página de zapatos para mujer de Bon-Bonite<br>Cuando el usuario ingresa a la categoría "&lt;categoria&gt;"<br>Y selecciona un producto al azar de la categoría<br>Y selecciona una talla de las disponibles<br>Y realiza la venta del producto seleccionado<br>Y finaliza la compra como invitado<br>Y diligencia el formulario de venta como invitado con los datos "&lt;documento&gt;", "&lt;nombres&gt;", "&lt;apellidos&gt;", "&lt;correo&gt;", "&lt;telefono&gt;", "&lt;direccion&gt;", "&lt;ciudad&gt;", "&lt;departamento&gt;", "&lt;pais&gt;", "&lt;codigoPostal&gt;"<br>Y autoriza el tratamiento de datos y realiza el pedido<br>Entonces debe visualizar el producto en la pantalla de finalización de compra<br>Y el total del pedido debe ser igual al precio del producto comprado</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Stale element reference exception: stale element reference: stale element not found in the current frame</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.StaleElementReferenceException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>org.example.interactions.ConfirmarPedidoComoInvitado.hacerClicEnElementoActual(ConfirmarPedidoComoInvitado.java:64)<br />org.example.interactions.ConfirmarPedidoComoInvitado.performAs(ConfirmarPedidoComoInvitado.java:47)<br />org.example.stepdefinitions.CompraStepDefinitions.autorizaElTratamientoDeDatosYRealizaElPedido(CompraStepDefinitions.java:134)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                    <div class="panel-body">
+                        <a href="pagesource12419286797177909341.html" target="_blank" class="btn btn-info">HTML Source</a>
+                    </div>
+            </div>
+    <!-- Swiper Carousel -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="9cfc372c7222221d58711e6bcd701c14e7a5d9dc31407eeb0e869556a5a575d9.png" title=" 1: Seleccionar y comprar un producto al azar por categor&iacute;a ({categoria=Bolsos, documento=12345675, nombres=Ana, apellidos=P&eacute;rez, correo=ana.perez@example.com, telefono=3105551234, direccion=Calle 10 # 20-30, ciudad=Bogot&aacute;, departamento=Distrito Capital de Bogot&aacute;, pais=Colombia, codigoPostal=110111})" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="9cfc372c7222221d58711e6bcd701c14e7a5d9dc31407eeb0e869556a5a575d9.png" title=" Dado que el usuario se encuentra en la p&aacute;gina de zapatos para mujer de Bon-Bonite" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="9cfc372c7222221d58711e6bcd701c14e7a5d9dc31407eeb0e869556a5a575d9.png" title=" Usuario navegar a zapatos mujer" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="9cfc372c7222221d58711e6bcd701c14e7a5d9dc31407eeb0e869556a5a575d9.png" title=" Usuario opens the pages.zapatosMujer page" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="9cfc372c7222221d58711e6bcd701c14e7a5d9dc31407eeb0e869556a5a575d9.png" title=" Usuario navegar a zapatos mujer (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="9cfc372c7222221d58711e6bcd701c14e7a5d9dc31407eeb0e869556a5a575d9.png" title=" Dado que el usuario se encuentra en la p&aacute;gina de zapatos para mujer de Bon-Bonite (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="445ae2b344b1da2852f77b478cdebbfcb5757db63e06f0f84fbd0ac44217171e.png" title=" Cuando el usuario ingresa a la categor&iacute;a &quot;Bolsos&quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="445ae2b344b1da2852f77b478cdebbfcb5757db63e06f0f84fbd0ac44217171e.png" title=" Usuario clicks on Opci&oacute;n de categor&iacute;a 'Bolsos' en el men&uacute;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="445ae2b344b1da2852f77b478cdebbfcb5757db63e06f0f84fbd0ac44217171e.png" title=" Cuando el usuario ingresa a la categor&iacute;a &quot;Bolsos&quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="e07859603badcc072a8d1a01f86dd48375f07371d23b73bda2dfd8a9df995bab.png" title=" Y selecciona un producto al azar de la categor&iacute;a" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="e07859603badcc072a8d1a01f86dd48375f07371d23b73bda2dfd8a9df995bab.png" title=" Usuario seleccionar producto al azar" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="e07859603badcc072a8d1a01f86dd48375f07371d23b73bda2dfd8a9df995bab.png" title=" Usuario clicks on bot&oacute;n Aceptar todo cookies " width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="ef74b356c05b327b997686322269e9a097fd66b5c9672e0dd758eab9ea12f3da.png" title=" Usuario clicks on [[ChromeDriver: chrome on mac (03ddf1451b79aab2814e8ad87da63d53)] -&gt; xpath: //div[contains(@class,'product_list')]//div[contains(@class,'product-wrapper-with-variation')]//a]" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="ef74b356c05b327b997686322269e9a097fd66b5c9672e0dd758eab9ea12f3da.png" title=" Usuario seleccionar producto al azar (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="ef74b356c05b327b997686322269e9a097fd66b5c9672e0dd758eab9ea12f3da.png" title=" Y selecciona un producto al azar de la categor&iacute;a (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="eaf1e85f4a7ef74b4cc865c2754aff4ab3ee18b461620352fa263dd2b866a89d.png" title=" Y selecciona una talla de las disponibles" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="eaf1e85f4a7ef74b4cc865c2754aff4ab3ee18b461620352fa263dd2b866a89d.png" title=" Usuario seleccionar talla disponible" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="eaf1e85f4a7ef74b4cc865c2754aff4ab3ee18b461620352fa263dd2b866a89d.png" title=" Usuario clicks on Bot&oacute;n 'Comprar Ahora'" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="eaf1e85f4a7ef74b4cc865c2754aff4ab3ee18b461620352fa263dd2b866a89d.png" title=" Usuario seleccionar talla disponible (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="eaf1e85f4a7ef74b4cc865c2754aff4ab3ee18b461620352fa263dd2b866a89d.png" title=" Y selecciona una talla de las disponibles (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="80303e3cee47bcb0663156f36f1baa451a68bed3708ff506bc1bd9e13012e1fc.png" title=" Y realiza la venta del producto seleccionado" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="80303e3cee47bcb0663156f36f1baa451a68bed3708ff506bc1bd9e13012e1fc.png" title=" Usuario terminar compra" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="80303e3cee47bcb0663156f36f1baa451a68bed3708ff506bc1bd9e13012e1fc.png" title=" Usuario clicks on Bot&oacute;n 'Finalizar compra'" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="1210dfd0dd175dac94d5a388162cca547cc73b85571e7c3298cd35a277d9393c.png" title=" Usuario clicks on Bot&oacute;n para continuar con la compra" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="1210dfd0dd175dac94d5a388162cca547cc73b85571e7c3298cd35a277d9393c.png" title=" Usuario terminar compra (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="1210dfd0dd175dac94d5a388162cca547cc73b85571e7c3298cd35a277d9393c.png" title=" Y realiza la venta del producto seleccionado (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="28b847f7795f318b8d730a3b1632b23a7e2f43741a19cf375fd75f474704c5c9.png" title=" Y finaliza la compra como invitado" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="28b847f7795f318b8d730a3b1632b23a7e2f43741a19cf375fd75f474704c5c9.png" title=" Usuario seleccionar compra como invitado" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="28b847f7795f318b8d730a3b1632b23a7e2f43741a19cf375fd75f474704c5c9.png" title=" Usuario clicks on Opci&oacute;n para comprar como invitado" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="28b847f7795f318b8d730a3b1632b23a7e2f43741a19cf375fd75f474704c5c9.png" title=" Usuario seleccionar compra como invitado (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="28b847f7795f318b8d730a3b1632b23a7e2f43741a19cf375fd75f474704c5c9.png" title=" Y finaliza la compra como invitado (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="da7c75229663cebd2b7a035995dc21b560b4772a8c74366751f80f545d08b2e8.png" title=" Y diligencia el formulario de venta como invitado con los datos &quot;12345675&quot;, &quot;Ana&quot;, &quot;P&eacute;rez&quot;, &quot;ana.perez@example.com&quot;, &quot;3105551234&quot;, &quot;Calle 10 # 20-30&quot;, &quot;Bogot&aacute;&quot;, &quot;Distrito Capital de Bogot&aacute;&quot;, &quot;Colombia&quot;, &quot;110111&quot;" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="da7c75229663cebd2b7a035995dc21b560b4772a8c74366751f80f545d08b2e8.png" title=" Usuario enters '12345675' into Campo de documento de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="da7c75229663cebd2b7a035995dc21b560b4772a8c74366751f80f545d08b2e8.png" title=" Usuario enters 'Ana' into Campo de nombres de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c103dcf28296d8b314b702740ce41860dc9186f39ac09cf67c8f8262adaff028.png" title=" Usuario enters 'P&eacute;rez' into Campo de apellidos de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="c103dcf28296d8b314b702740ce41860dc9186f39ac09cf67c8f8262adaff028.png" title=" Usuario enters 'ana.perez@example.com' into Campo de correo de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="3258fd4a7dffde9fac47e3c2d6058a1fd4678b172c835808274c95c04cef23f6.png" title=" Usuario enters '3105551234' into Campo de tel&eacute;fono de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="3258fd4a7dffde9fac47e3c2d6058a1fd4678b172c835808274c95c04cef23f6.png" title=" Usuario enters 'Calle 10 # 20-30' into Campo de direcci&oacute;n de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="57b44e512db7518aeea03765f9037a5b9b43f63e9b65b7ad2c35235edc726274.png" title=" Usuario selects Colombia on Selector de pa&iacute;s de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="57b44e512db7518aeea03765f9037a5b9b43f63e9b65b7ad2c35235edc726274.png" title=" Usuario selects Distrito Capital de Bogot&aacute; on Selector de departamento de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="6e2a477651cf59a62f8dffb438e9bb7c5b77d36b436cb1bce9e9a0327428acf9.png" title=" Usuario selects Bogot&aacute; on Campo de ciudad de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="6e2a477651cf59a62f8dffb438e9bb7c5b77d36b436cb1bce9e9a0327428acf9.png" title=" Usuario enters '110111' into Campo de c&oacute;digo postal de facturaci&oacute;n" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="6e2a477651cf59a62f8dffb438e9bb7c5b77d36b436cb1bce9e9a0327428acf9.png" title=" Y diligencia el formulario de venta como invitado con los datos &quot;12345675&quot;, &quot;Ana&quot;, &quot;P&eacute;rez&quot;, &quot;ana.perez@example.com&quot;, &quot;3105551234&quot;, &quot;Calle 10 # 20-30&quot;, &quot;Bogot&aacute;&quot;, &quot;Distrito Capital de Bogot&aacute;&quot;, &quot;Colombia&quot;, &quot;110111&quot; (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="ae75ad44486f420883b5ec75f472c4f518146d27274cce332d046678d8a65ddf.png" title=" Y autoriza el tratamiento de datos y realiza el pedido" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="ae75ad44486f420883b5ec75f472c4f518146d27274cce332d046678d8a65ddf.png" title=" Usuario confirmar pedido como invitado" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="ae75ad44486f420883b5ec75f472c4f518146d27274cce332d046678d8a65ddf.png" title=" Usuario scroll al inicio" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="20d4ad4e7c437bc10767ae507efee1aee39fd303b6dd375aec4a1b1002b4d5b0.png" title=" Usuario clicks on Casilla de autorizaci&oacute;n de t&eacute;rminos y condiciones" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="f6117cfee34ba49d4f9d52ec39a32349b20a53d8fe3252dc071739c57bdd66b1.png" title=" Usuario clicks on Casilla de autorizaci&oacute;n de t&eacute;rminos y condiciones" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="45fe91b8f9beb1c2672045b72e1a8fac1b34229840b6374c72802d23c92e41f9.png" title=" Usuario clicks on Bot&oacute;n 'Realizar pedido'" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="45fe91b8f9beb1c2672045b72e1a8fac1b34229840b6374c72802d23c92e41f9.png" title=" Usuario confirmar pedido como invitado (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="45fe91b8f9beb1c2672045b72e1a8fac1b34229840b6374c72802d23c92e41f9.png" title=" Y autoriza el tratamiento de datos y realiza el pedido (completed)" width="0" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="bc0a7a70cb113ae43856cabcdae0c649226d7b4adf94617ddc16d54eff6aca00.png" title=" Entonces debe visualizar el producto en la pantalla de finalización de compra: <span class='error-color'>ERROR</span>" width="0" />
+                </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 5.3.7</span>
+</div>
+</body>
+</html>
