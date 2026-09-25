@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Registro de nuevo usuario" skipped="0" tests="2" time="147.86" timestamp="2026-09-25 05:34:50"><testcase name="Rechazar registro con datos ya registrados"/><testcase name="Registrar exitosamente un nuevo usuario"><failure message="&#10;Expected: an element that is visible&#10;     but: no matching element found by [mensaje de bienvenida located with: xpath: //h3[contains(text(),'Hola')]]" type="java.lang.AssertionError">
-Expected: an element that is visible
-     but: no matching element found by [mensaje de bienvenida located with: xpath: //h3[contains(text(),'Hola')]]</failure><system-err>
-Expected: an element that is visible
-     but: no matching element found by [mensaje de bienvenida located with: xpath: //h3[contains(text(),'Hola')]]
-org.example.questions.CuentaAutenticada.answeredBy(CuentaAutenticada.java:29)
-org.example.questions.CuentaAutenticada.answeredBy(CuentaAutenticada.java:11)
-org.example.stepdefinitions.RegistroStepDefinitions.validarCuentaAutenticada(RegistroStepDefinitions.java:72)
-</system-err></testcase></testsuite>

@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Inicio de sesión de usuario" skipped="0" tests="2" time="56.89" timestamp="2026-09-25 05:36:10"><testcase name="Rechazar inicio de sesión con credenciales inválidas"/><testcase name="Iniciar sesión exitosamente con credenciales registradas"/></testsuite>
