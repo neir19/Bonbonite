@@ -44,6 +44,7 @@ Los escenarios se encuentran en `src/test/resources/features/` y utilizan tablas
 
 1. Inicio de sesion exitoso con credenciales registradas y validacion de la cuenta autenticada.
 2. Rechazo de inicio de sesion con credenciales invalidas y validacion del mensaje de error.
+3. Modificacion de nombres, apellidos y correo del usuario autenticado desde los detalles de su cuenta.
 
 ### Registro (`registro.feature`)
 
@@ -56,7 +57,7 @@ Los escenarios se encuentran en `src/test/resources/features/` y utilizan tablas
 6. Compra como invitado de un producto seleccionado aleatoriamente en la categoria **Zapatos**.
 7. Compra de un producto iniciando sesion durante el checkout.
 
-En total hay 6 esquemas de escenario y 7 ejecuciones parametrizadas a partir de sus ejemplos.
+En total hay 7 esquemas de escenario y 8 ejecuciones parametrizadas a partir de sus ejemplos.
 
 ## Funcionalidades cubiertas
 
@@ -67,6 +68,7 @@ En total hay 6 esquemas de escenario y 7 ejecuciones parametrizadas a partir de 
 - Compra sin autenticacion previa.
 - Autenticacion durante el checkout.
 - Formularios de inicio de sesion, registro y datos de compra.
+- Actualizacion de nombres, apellidos y correo del usuario autenticado.
 - Validacion de credenciales invalidas.
 - Validacion de registro duplicado.
 - Aceptacion del tratamiento de datos personales.

@@ -31,3 +31,22 @@ Característica: Inicio de sesión de usuario
     Ejemplos:
       | cedula      | password       |
       | 00000000000 | ClaveInvalida1 |
+
+    @perfil @modificar-datos
+    Esquema del escenario: Modificar los datos del usuario autenticado
+      Dado que el usuario se encuentra en la página de zapatos para mujer de Bon-Bonite
+      Cuando el usuario selecciona la opción "Mi cuenta"
+      Y diligencia los campos del inicio de sesión con los siguientes datos:
+        | cedula      | contraseña  |
+        | <cedula>    | <password>  |
+      Y selecciona el botón "Iniciar Sesión"
+      Y selecciona la opción "Detalles de la cuenta"
+      Y modifica sus datos con la siguiente información:
+        | nombres   | apellidos   | correo   |
+        | <nombres> | <apellidos> | <correo> |
+      Y guarda los cambios de sus datos
+      Entonces debe visualizar la confirmación de actualización de sus datos
+
+      Ejemplos:
+        | cedula      | password    | nombres | apellidos | correo                 |
+        | 10202091234 | Test@12345  | Ana     | Pérez     | ana.perez@example.com  |
